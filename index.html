@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="site.css" type="text/css">
-    <title>Kate Sansom</title>
+<title>Kate Sansom</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Fascinate Inline' rel='stylesheet'>
+<style>
+body {font-family: sans-serif}
+.content {
+  max-width: 500px;
+  margin: auto;
+  font-family: 'Fascinate Inline';
+  align-items: center;
+}
+img {
+    border: 6px solid orangered;
+}
+h1 {
+    text-align:center;
+    color: orangered;
+    padding: 30px;
+    font-size: 50px;
+}
+h2 {
+    text-align:center;
+    color: orangered;
+    padding: 40px;
+    font-size: 30px;
+}
+a { 
+    color: inherit; 
+}
+.gif {
+    margin-bottom: 100px;
+}
+body {
+  background-image: url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 </head>
-<body> 
-    <div class="bg">
-        <img src="images/background.jpg" alt="Kate Sansom Sorry">
-    </div>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="shows.html">shows</a></li>
-                <li><a href="groupshows.html">group shows</a></li>
-                <li><a href="curated.html">curated</a></li>
-                <li><a href="thissorrygame.html">this sorry game</a></li>
-                <li><a href="contact.html">contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <p class="pie">
-                <em>Kate Sansom</em>
-            </p>
-            <p class="pie">
-                <a href="KateSansomCV_portfolio.pdf" class="tag">pdf</a>
-            </p>
-        </article>
-    </main>
-    <script>
-        let links = document.querySelectorAll(".tag");
-        links.forEach(function(link) {
-        link.setAttribute("target", "_blank");
-        });
+<body>
 
-        window.addEventListener("orientationchange", function(e) {
-            let screen = window.screen;
-            let angle = screen.orientation.angle;
-            let type = screen.orientation.type;
-            console.log(`angle: ${ angle }, type: ${ type }`);
-        });
-    </script>
+<div class="content">
+    <div><h1>Kate Sansom</h1></div>
+    <div class="gif"><img src="images/cross_stitch2023.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/sorry_music.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/Book03.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/Book04.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/holes.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/kill_time_like_mos.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/froth_ending.gif" style="width:100%"></div>
+    <div class="gif"><img src="images/sociable.gif" style="width:100%"></div>
+    <div><h2><a href="mailto:kateesansom@gmail.com">email</a></h2></div>
+</div>
+
 </body>
-</html>

@@ -1,0 +1,174 @@
+body {font-family: sans-serif}
+.content {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Fascinate Inline';
+  align-items: center;
+}
+img {
+    border: 2px dotted #111010;
+}
+h1 {
+    text-align:center;
+    color: #181717;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+h2 {
+    text-align:center;
+    color: #1f1e1e;
+    padding-bottom: 40px;
+    font-size: 26px;
+}
+
+h4 {
+    text-align: center;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 12px;
+}
+
+a { 
+    color: blue; 
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: pink;
+    text-decoration: underline;
+}
+
+.gif {
+    margin-bottom: 100px;
+}
+
+img {
+    padding: 5px;
+    margin: 3px;
+    outline: 2px dotted #999;
+    align-items: center; 
+}
+h1 {
+    text-align:center;
+    color: #181717;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+div {
+    padding: 5px;
+}
+
+h2 {
+    text-align:center;
+    font-size: 25px;
+}
+
+h4 {
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+}
+
+a { 
+    color: inherit; 
+}
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    color: blue;
+    position: inherit;
+    outline: 2px dotted blue;
+}
+
+.gif {
+    margin-bottom: 100px;
+}
+
+
+.header_table {
+    color: black;
+    font-family: 'Fascinate Inline';
+    text-align: center;
+    font-weight: lighter;
+    width: 100%;
+    font-size: 20px;
+}
+
+.about_cont {
+    text-align: justify;
+    outline: 2px dotted #999;
+    max-width: 400px;
+    padding: 5px;
+    margin: 10px auto 10px auto;
+}
+.pay_cont {
+    text-align: center;
+    outline: 2px dotted #999;
+    max-width: 500px;
+    margin: 10px auto 5px auto;
+    object-position: center
+}
+.title_cont {
+    text-align: center;
+    outline: 2px dotted #999;
+    max-width: 600px;
+    margin: 10px auto 5px auto;
+    object-position: center
+}
+
+th {font-size: 20px; 
+    vertical-align: center; 
+    padding: 8px; 
+    margin-bottom: 5px; 
+    border-bottom: 2px dotted black;
+    border-left: 2px dotted black;
+}
+th.first {text-align: left;}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 2px dotted #999;
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    color: white;
+    background-color: black;
+    padding: 12px 20px;
+    border: 2px dotted #999;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: blue;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+    align-items: center;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }

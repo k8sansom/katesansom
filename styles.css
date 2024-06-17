@@ -1,10 +1,13 @@
 body {font-family: sans-serif}
 .content {
-  max-width: 800px;
-  margin: auto;
   font-family: 'Fascinate Inline';
-  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  margin: 10px auto 5px auto;
+  object-position: center;
+  border: 2px dotted #111010;
 }
+
 img {
     border: 2px dotted #111010;
 }
@@ -105,6 +108,16 @@ a:hover {
     font-size: 20px;
 }
 
+.body_table {
+    margin: auto;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: lighter;
+    width: 90%;
+    font-size: 12px;
+}
+
 .about_cont {
     text-align: justify;
     outline: 2px dotted #999;
@@ -127,15 +140,35 @@ a:hover {
     object-position: center
 }
 
-th {font-size: 20px; 
-    vertical-align: center; 
+th {vertical-align: center; 
     padding: 8px; 
     margin-bottom: 5px; 
     border-bottom: 2px dotted black;
+    border-top: 2px dotted black;
+}
+
+td {vertical-align: center; 
+    padding: 8px; 
+    margin-bottom: 5px; 
+    border-bottom: 2px dotted black;
+    border-top: 2px dotted black;
+}
+
+th.body {
+    text-align: right;
+    font-size: 14px;
+    border-right: 2px dotted black;
+}
+th.first {text-align: left;
+    font-size: 24px;
     border-left: 2px dotted black;
 }
-th.first {text-align: left;}
-
+.left {
+    text-align: left;
+    font-size: 12px;
+    border-right: 2px dotted black;
+    vertical-align: bottom;
+}
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     width: 100%; /* Full width */

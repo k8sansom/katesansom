@@ -52,7 +52,7 @@ a:hover {
 img {
     padding: 5px;
     margin: 3px;
-    outline: 2px dotted #999;
+    outline: 2px dotted black;
     align-items: center; 
 }
 h1 {
@@ -204,3 +204,14 @@ input[type=text], select, textarea {
     margin-right:auto;
     text-align:center;
   }
+
+  .vertical{
+    writing-mode:vertical-rl;
+    /* -ms-transform:rotate(90deg); */
+    /* transform: rotate(90deg); */
+    white-space:nowrap;
+    display:block;
+    bottom:0;
+    width:20px;
+    height:20px;
+}

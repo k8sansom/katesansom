@@ -206,12 +206,6 @@ input[type=text], select, textarea {
   }
 
   .vertical{
-    writing-mode:vertical-rl;
-    -ms-transform:rotate(90deg);
-    transform: rotate(90deg);
-    white-space:nowrap;
-    display:block;
-    bottom:0;
-    width:20px;
-    height:20px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
 }

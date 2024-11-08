@@ -159,6 +159,12 @@ th.first {text-align: left;
     border-right: 2px dotted black;
     vertical-align: bottom;
 }
+.date {
+    text-align: left;
+    font-size: 12px;
+    border-left: 2px dotted black;
+    vertical-align: bottom;
+}
 
 .right {
     text-align: right;

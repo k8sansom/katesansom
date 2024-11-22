@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kate Sansom</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Fascinate Inline' rel='stylesheet'>
+  <link href="styles.css" rel="stylesheet" />
+
+</head>
+<body>
+  <header>
+    <table class="header_table">
+      <thead>
+        <tr>
+          <th class="first"><a href="index.html">Kate Sansom</a></th>
+          <th></th>
+          <th></th>
+          <th class="body"></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th class="body"></th>
+          <th class="body"><a href="shows.html">shows</a></th>
+          <th class="body"><a href="contact.html">Contact</a></th>
+        </tr>
+      </thead>
+    </table>
+  </header>
+  <div class="content_grid_page">
+    <img src="images/holes/hole01_install.jpg" alt="Kate Sansom hole painting"> 
+    <img src="images/holes/hole02_install.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole03_install.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole04_install_new.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole05_install.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole06_install.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole07_install.jpg" alt="Kate Sansom hole painting"> 
+    <img src="images/holes/hole08_install.jpg" alt="Kate Sansom hole painting"> 
+    <img src="images/holes/hole10_install.jpg" alt="Kate Sansom hole painting"> 
+    <img src="images/holes/hole11_install.jpg" alt="Kate Sansom hole painting">
+    <img src="images/holes/hole12_install.jpg" alt="Kate Sansom hole painting">
+  </div>
+
+  <script>
+    // Select all images within elements having the class "content_grid_page"
+    const images = document.querySelectorAll('.content_grid_page img');
+  
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        // Remove 'expanded' class from any currently expanded image
+        const expandedImg = document.querySelector('.content_grid_page img.expanded');
+        if (expandedImg && expandedImg !== img) {
+          expandedImg.classList.remove('expanded');
+        }
+  
+        // Toggle the "expanded" class for the clicked image
+        img.classList.toggle('expanded');
+      });
+    });
+  </script>
+  
+</body>
+</html>
+

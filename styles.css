@@ -1,0 +1,257 @@
+body {font-family: sans-serif}
+
+.content {
+  font-family: 'Fascinate Inline';
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  object-position: center;
+}
+.content_grid_page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .content_grid_page img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .content_grid_page img.expanded {
+    grid-column: span 2; /* Span two columns when expanded */
+    grid-row: span 2; /* Span two rows when expanded */
+    width: 100%;
+    height: auto;
+    transform: scale(1.05); /* Slightly larger for emphasis */
+  }
+
+h1 {
+    text-align:center;
+    color: #181717;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+h2 {
+    text-align:center;
+    color: #1f1e1e;
+    padding-bottom: 40px;
+    font-size: 26px;
+}
+
+h4 {
+    text-align: center;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 12px;
+}
+
+a { 
+    color: blue; 
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: pink;
+    text-decoration: underline;
+}
+
+.gif {
+    margin-bottom: 100px;
+}
+
+img {
+    padding: 5px;
+    margin: 3px;
+    align-items: center; 
+}
+
+img.index {
+    padding: 5px;
+    margin: 3px;
+    outline: 2px dotted black;
+    align-items: center; 
+}
+
+h1 {
+    text-align:center;
+    color: #181717;
+    padding-bottom: 50px;
+    font-size: 50px;
+}
+div {
+    padding: 5px;
+}
+
+h2 {
+    text-align:center;
+    font-size: 25px;
+}
+
+h4 {
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+}
+
+a { 
+    color: inherit; 
+}
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    color: blue;
+    position: inherit;
+    outline: 2px dotted blue;
+}
+
+.gif {
+    margin-bottom: 100px;
+}
+
+
+.header_table {
+    color: black;
+    font-family: 'Fascinate Inline';
+    text-align: center;
+    font-weight: lighter;
+    width: 100%;
+    font-size: 16px;
+    position: sticky; /* Makes header sticky */
+    top: 0;
+    z-index: 1000;
+}
+
+.body_table {
+    margin: auto;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: lighter;
+    width: 90%;
+    font-size: 12px;
+}
+
+.about_cont {
+    text-align: justify;
+    outline: 2px dotted #999;
+    max-width: 400px;
+    padding: 5px;
+    margin: 10px auto 10px auto;
+}
+
+.title_cont {
+    text-align: center;
+    outline: 2px dotted #999;
+    max-width: 600px;
+    margin: 10px auto 5px auto;
+    object-position: center
+}
+
+th {vertical-align: center; 
+    padding: 8px; 
+    margin-bottom: 5px; 
+    border-bottom: 2px dotted black;
+    border-top: 2px dotted black;
+}
+
+td {vertical-align: center; 
+    padding: 8px; 
+    margin-bottom: 5px; 
+    border-bottom: 2px dotted black;
+    border-top: 2px dotted black;
+}
+
+th.body {
+    text-align: right;
+    font-size: 14px;
+    border-right: 2px dotted black;
+}
+th.first {
+    text-align: left;
+    font-size: 16px;
+    border-left: 2px dotted black;
+}
+
+th.center {
+    text-align: center;
+    font-size: 16px;
+    border-left: 2px dotted black;
+    border-right: 2px dotted black;
+}
+.left {
+    text-align: left;
+    font-size: 12px;
+    border-right: 2px dotted black;
+    vertical-align: bottom;
+}
+.date {
+    text-align: left;
+    font-size: 12px;
+    border-left: 2px dotted black;
+    vertical-align: bottom;
+}
+
+.right {
+    text-align: right;
+    font-size: 12px;
+    border-right: 2px dotted black;
+    vertical-align: bottom;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 2px dotted #999;
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    color: white;
+    background-color: black;
+    padding: 12px 20px;
+    border: 2px dotted #999;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: blue;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+    align-items: center;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+
+  .vertical{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}

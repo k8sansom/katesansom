@@ -125,6 +125,15 @@
         </tr>
       </tbody>
       </table>
-      <div><h4><a href="shows.html">top</a></h4></div>
-</div>
+      <div><h4 id="goToTop">top</h4></div>
+    </div>
+
+    <script>
+			document.getElementById('goToTop').addEventListener('click', function () {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth' // Smooth scrolling effect
+				});
+			});	
+    </script>
 </body>

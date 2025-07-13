@@ -307,3 +307,27 @@ input[type=text], select, textarea {
 	display: block;
 	margin: 0 auto;
   }
+
+  .vertical {
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+	.body_table th,
+	.body_table td {
+	  font-size: 0.9rem;
+	  padding: 6px;
+	}
+  
+	.vertical {
+	  writing-mode: horizontal-tb;
+	  text-orientation: initial;
+	}
+  
+	.uniform-cells td {
+	  width: 50%;
+	  height: auto;
+	}
+  }

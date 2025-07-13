@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://katesansom.info/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://katesansom.info/paintingArchive.html</loc>
+  </url>
+
+  <url>
+    <loc>https://katesansom.info/shows.html</loc>
+  </url>
+
+  <url>
+    <loc>https://katesansom.info/contact.html</loc>
+  </url>
+
+  <!-- Add more if you have other HTML pages -->
+</urlset>

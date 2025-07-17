@@ -103,7 +103,7 @@ a:hover {
     text-align: center;
     font-weight: lighter;
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
     position: sticky; /* Makes header sticky */
     top: 0;
     z-index: 1000;

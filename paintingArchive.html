@@ -126,8 +126,7 @@
 					behavior: 'smooth' // Smooth scrolling effect
 				});
 			});
-		</script>
-		<script>
+			
 			const thumbnails = document.querySelectorAll('.index');
 			const fullImageBasePath = "images/painting archive/";
 			let currentIndex = 0;
@@ -187,6 +186,28 @@
 					if (e.key === 'Escape') closeModal();
 				}
 			});
+			// Swipe navigation for mobile
+			let touchStartX = 0;
+			let touchEndX = 0;
+
+			modal.addEventListener("touchstart", function(e) {
+			touchStartX = e.changedTouches[0].screenX;
+			}, false);
+
+			modal.addEventListener("touchend", function(e) {
+				touchEndX = e.changedTouches[0].screenX;
+				handleSwipe();
+			}, false);
+
+			function handleSwipe() {
+			const swipeThreshold = 50; // min distance in px to count as a swipe
+				if (touchEndX < touchStartX - swipeThreshold) {
+					showNext(); // swipe left → next
+				}
+				if (touchEndX > touchStartX + swipeThreshold) {
+					showPrev(); // swipe right → prev
+				}
+			}
 		</script>
 		
 	</body>

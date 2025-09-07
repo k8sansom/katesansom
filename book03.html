@@ -20,7 +20,6 @@
 						<th></th>
 						<th class="body"><a href="paintingArchive.html">painting archive</a></th>
 						<th class="body"><a href="shows.html">shows</a></th>
-						<th class="body"><a href="contact.html">Contact</a></th>
 					</tr>
 				</thead>
 			</table>
@@ -93,7 +92,14 @@
 					<td><img class="index" src="images/Book_03/thumbs/kate-sansom-book-03-page40.jpg" alt="Kate Sansom, 'Book 03', 2021-2022"></td>
 				</tr>
 			</table>
-			<div><h4 id="goToTop">top</h4></div>
+			<div></div>
+			<div></div>
+			<div></div>
+				
+			<div>
+				<h4><a href="mailto:kateesansom@gmail.com">contact</a></h4>
+				<h4 id="goToTop">top</h4>
+			</div>
 		</div>
 
 		<div id="imageModal" class="modal" style="display: none;">
@@ -111,72 +117,61 @@
 		</div>	
 
 		<script>
+			// Smooth scroll to top
 			document.getElementById('goToTop').addEventListener('click', function () {
-				window.scrollTo({
-					top: 0,
-					behavior: 'smooth' // Smooth scrolling effect
-				});
+			  window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			  });
 			});
-		</script>
-		<script>
-			const thumbnails = document.querySelectorAll('.index');
-			const fullImageBasePath = "images/Book_03/";
-			let currentIndex = 0;
-
-			const modal = document.getElementById('imageModal');
-			const modalImage = document.getElementById('modalImage');
-			const modalCaption = document.getElementById('imageCaption');
-
-			function openImageModal(index) {
-				const thumb = thumbnails[index];
-				currentIndex = index;
-
-				const filename = thumb.src.split('/').pop(); // get just the file name
-				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); // remove 'thumbs/' if present
-				modalImage.src = fullImagePath;
-				modalCaption.textContent = thumb.alt || '';
-				modal.style.display = 'flex';
+		  
+			// ---------- VIDEO MODAL ----------
+			function openVideoModal(videoURL) {
+			  const modal = document.getElementById('videoModal');
+			  const iframe = document.getElementById('videoFrame');
+		  
+			  // Convert regular YouTube URL to embed format
+			  const embedURL = videoURL.replace("watch?v=", "embed/").split("&")[0];
+		  
+			  iframe.src = embedURL;
+			  modal.style.display = "flex";
+		  
+			  // Close with X button
+			  modal.querySelector(".close-button").onclick = function () {
+				modal.style.display = "none";
+				iframe.src = ""; // stop video
+			  };
 			}
-
-			function closeModal() {
-				modal.style.display = 'none';
-				modalImage.src = '';
-				modalCaption.textContent = '';
+		  
+			// ---------- IMAGE MODAL ----------
+			function openImageModal(src, caption) {
+			  const modal = document.getElementById('imageModal');
+			  const modalImg = document.getElementById('modalImage');
+			  const modalCaption = document.getElementById('imageCaption');
+		  
+			  modalImg.src = src;
+			  modalCaption.textContent = caption || "";
+			  modal.style.display = "flex";
+		  
+			  // Close with X button
+			  modal.querySelector(".close-button").onclick = function () {
+				modal.style.display = "none";
+			  };
 			}
-
-			function showNext() {
-				currentIndex = (currentIndex + 1) % thumbnails.length;
-				openImageModal(currentIndex);
-			}
-
-			function showPrev() {
-				currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-				openImageModal(currentIndex);
-			}
-
-			// Add event listeners
-			thumbnails.forEach((img, i) => {
-				img.addEventListener('click', () => openImageModal(i));
+		  
+			// ---------- CLOSE WHEN CLICKING OUTSIDE ----------
+			document.getElementById("videoModal").addEventListener("click", function (e) {
+			  if (e.target === this) {
+				this.style.display = "none";
+				document.getElementById("videoFrame").src = ""; // stop video
+			  }
 			});
-
-			document.querySelector('#imageModal .close-button').onclick = closeModal;
-			document.getElementById('nextBtn').onclick = showNext;
-			document.getElementById('prevBtn').onclick = showPrev;
-
-			// Close modal when clicking outside the modal content
-			modal.addEventListener('click', (e) => {
-				if (e.target === modal) closeModal();
+		  
+			document.getElementById("imageModal").addEventListener("click", function (e) {
+			  if (e.target === this) {
+				this.style.display = "none";
+			  }
 			});
-
-			// Optional: Keyboard navigation
-			document.addEventListener('keydown', (e) => {
-				if (modal.style.display === 'flex') {
-					if (e.key === 'ArrowRight') showNext();
-					if (e.key === 'ArrowLeft') showPrev();
-					if (e.key === 'Escape') closeModal();
-				}
-			});
-		</script>
-		
+		  </script>		  
 	</body>
 </html>

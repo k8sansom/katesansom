@@ -116,6 +116,8 @@
 			</div>
 		</div>	
 
+		<div id="imageLoader" class="loader" style="display:none;"></div>
+
 		<script>
 			document.getElementById('goToTop').addEventListener('click', function () {
 				window.scrollTo({
@@ -131,19 +133,29 @@
 			const modal = document.getElementById('imageModal');
 			const modalImage = document.getElementById('modalImage');
 			const modalCaption = document.getElementById('imageCaption');
+			const loader = document.getElementById("imageLoader");
 
 			function openImageModal(index) {
 				const thumb = thumbnails[index];
 				currentIndex = index;
 
-				const filename = thumb.src.split('/').pop(); // get just the file name
-				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); 
+				const filename = thumb.src.split("/").pop();
+				const fullImagePath = fullImageBasePath + filename.replace("thumbs/", "");
+
+				// Show loader, hide image
+				loader.style.display = "block";
+				modalImage.style.display = "none";
+
 				modalImage.src = fullImagePath;
-				modalCaption.textContent = thumb.alt || '';
+				modalCaption.textContent = thumb.alt || "";
+				modal.classList.add("show");
 
-				modal.classList.add("show"); // show with fade-in
+				// When image finishes loading
+				modalImage.onload = function () {
+					loader.style.display = "none";
+					modalImage.style.display = "block";
+				};
 			}
-
 			function closeModal() {
 				modal.classList.remove("show"); // fade-out
 				setTimeout(() => {
@@ -184,6 +196,7 @@
 					if (e.key === 'Escape') closeModal();
 				}
 			});
+
 			// Swipe navigation for mobile
 			let touchStartX = 0;
 			let touchEndX = 0;

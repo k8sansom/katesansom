@@ -170,8 +170,7 @@
 				  <iframe id="videoFrame" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
-			  
-							
+			<div id="videoLoader" class="loader" style="display:none;"></div>
 
 		<script>
 			document.getElementById('goToTop').addEventListener('click', function () {
@@ -182,19 +181,34 @@
 			});
 			
 			function openVideoModal(videoURL) {
-				const modal = document.getElementById('videoModal');
-				const iframe = document.getElementById('videoFrame');
+				const modal = document.getElementById("videoModal");
+				const iframe = document.getElementById("videoFrame");
+				const loader = document.getElementById("videoLoader");
 
 				// Convert regular YouTube URL to embed format
 				const embedURL = videoURL.replace("watch?v=", "embed/").split("&")[0];
 
+				// Show loader, hide iframe
+				loader.style.display = "block";
+				iframe.style.display = "none";
+
 				iframe.src = embedURL;
 				modal.classList.add("show");
+
+				// Once iframe is loaded, hide loader and show iframe
+				iframe.onload = function () {
+					loader.style.display = "none";
+					iframe.style.display = "block";
+				};
 
 				// Close with X button
 				modal.querySelector(".close-button").onclick = function () {
 					modal.classList.remove("show");
-					setTimeout(() => (iframe.src = ""), 300); // wait for fade-out
+					setTimeout(() => {
+					iframe.src = "";
+					loader.style.display = "none"; // reset loader
+					iframe.style.display = "none"; // reset iframe
+					}, 300);
 				};
 
 				// Close when clicking outside modal content
@@ -205,7 +219,6 @@
 					}
 				});
 			}
-
 		</script>
 	</body>
 </html>

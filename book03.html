@@ -102,7 +102,7 @@
 			</div>
 		</div>
 
-		<div id="imageModal" class="modal" style="display: none;">
+		<div id="imageModal" class="modal">
 			<div class="modal-content">
 				<span class="close-button">&times;</span>
 				<!-- Left arrow -->
@@ -137,18 +137,19 @@
 				currentIndex = index;
 
 				const filename = thumb.src.split('/').pop(); // get just the file name
-				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); // remove 'thumbs/' if present
+				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); 
 				modalImage.src = fullImagePath;
-				console.log("Thumb src is:", thumb.src);
-				console.log("full image path: ", fullImagePath)
 				modalCaption.textContent = thumb.alt || '';
-				modal.style.display = 'flex';
+
+				modal.classList.add("show"); // show with fade-in
 			}
 
 			function closeModal() {
-				modal.style.display = 'none';
-				modalImage.src = '';
-				modalCaption.textContent = '';
+				modal.classList.remove("show"); // fade-out
+				setTimeout(() => {
+					modalImage.src = '';
+					modalCaption.textContent = '';
+				}, 300); // wait for transition to finish
 			}
 
 			function showNext() {

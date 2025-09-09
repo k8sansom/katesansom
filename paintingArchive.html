@@ -105,7 +105,7 @@
 			<h4 id="goToTop">top</h4>
 		</div>
 
-		<div id="imageModal" class="modal" style="display: none;">
+		<div id="imageModal" class="modal">
 			<div class="modal-content">
 				<span class="close-button">&times;</span>
 				<!-- Left arrow -->
@@ -126,7 +126,7 @@
 					behavior: 'smooth' // Smooth scrolling effect
 				});
 			});
-			
+
 			const thumbnails = document.querySelectorAll('.index');
 			const fullImageBasePath = "images/painting archive/";
 			let currentIndex = 0;
@@ -140,18 +140,19 @@
 				currentIndex = index;
 
 				const filename = thumb.src.split('/').pop(); // get just the file name
-				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); // remove 'thumbs/' if present
+				const fullImagePath = fullImageBasePath + filename.replace('thumbs/', ''); 
 				modalImage.src = fullImagePath;
-				console.log("Thumb src is:", thumb.src);
-				console.log("full image path: ", fullImagePath)
 				modalCaption.textContent = thumb.alt || '';
-				modal.style.display = 'flex';
-			}
+
+				modal.classList.add("show"); // show with fade-in
+				}
 
 			function closeModal() {
-				modal.style.display = 'none';
-				modalImage.src = '';
-				modalCaption.textContent = '';
+				modal.classList.remove("show"); // fade-out
+				setTimeout(() => {
+					modalImage.src = '';
+					modalCaption.textContent = '';
+				}, 300); // wait for transition to finish
 			}
 
 			function showNext() {
@@ -189,25 +190,52 @@
 			// Swipe navigation for mobile
 			let touchStartX = 0;
 			let touchEndX = 0;
+			let isDragging = false;
 
-			modal.addEventListener("touchstart", function(e) {
+			const modalContent = document.querySelector(".modal-content");
+
+			modalContent.addEventListener("touchstart", function (e) {
 			touchStartX = e.changedTouches[0].screenX;
+			isDragging = true;
 			}, false);
 
-			modal.addEventListener("touchend", function(e) {
-				touchEndX = e.changedTouches[0].screenX;
-				handleSwipe();
+			modalContent.addEventListener("touchmove", function (e) {
+			if (!isDragging) return;
+			const currentX = e.changedTouches[0].screenX;
+			const deltaX = currentX - touchStartX;
+
+			// move image slightly with finger
+			modalImage.style.transform = `translateX(${deltaX}px)`;
+			}, false);
+
+			modalContent.addEventListener("touchend", function (e) {
+			touchEndX = e.changedTouches[0].screenX;
+			isDragging = false;
+			handleSwipe();
 			}, false);
 
 			function handleSwipe() {
-			const swipeThreshold = 50; // min distance in px to count as a swipe
-				if (touchEndX < touchStartX - swipeThreshold) {
-					showNext(); // swipe left → next
-				}
-				if (touchEndX > touchStartX + swipeThreshold) {
-					showPrev(); // swipe right → prev
-				}
+			const swipeThreshold = 50; // min distance in px
+			const deltaX = touchEndX - touchStartX;
+
+			if (deltaX < -swipeThreshold) {
+				modalImage.style.transform = "translateX(-100%)"; // slide out left
+				setTimeout(() => {
+				showNext();
+				modalImage.style.transform = "translateX(0)";
+				}, 200);
+			} else if (deltaX > swipeThreshold) {
+				modalImage.style.transform = "translateX(100%)"; // slide out right
+				setTimeout(() => {
+				showPrev();
+				modalImage.style.transform = "translateX(0)";
+				}, 200);
+			} else {
+				// not enough swipe → reset
+				modalImage.style.transform = "translateX(0)";
 			}
+		}
+
 		</script>
 		
 	</body>

@@ -187,25 +187,51 @@
 			// Swipe navigation for mobile
 			let touchStartX = 0;
 			let touchEndX = 0;
+			let isDragging = false;
 
-			modal.addEventListener("touchstart", function(e) {
+			const modalContent = document.querySelector(".modal-content");
+
+			modalContent.addEventListener("touchstart", function (e) {
 			touchStartX = e.changedTouches[0].screenX;
+			isDragging = true;
 			}, false);
 
-			modal.addEventListener("touchend", function(e) {
-				touchEndX = e.changedTouches[0].screenX;
-				handleSwipe();
+			modalContent.addEventListener("touchmove", function (e) {
+			if (!isDragging) return;
+			const currentX = e.changedTouches[0].screenX;
+			const deltaX = currentX - touchStartX;
+
+			// move image slightly with finger
+			modalImage.style.transform = `translateX(${deltaX}px)`;
+			}, false);
+
+			modalContent.addEventListener("touchend", function (e) {
+			touchEndX = e.changedTouches[0].screenX;
+			isDragging = false;
+			handleSwipe();
 			}, false);
 
 			function handleSwipe() {
-			const swipeThreshold = 50; // min distance in px to count as a swipe
-				if (touchEndX < touchStartX - swipeThreshold) {
-					showNext(); // swipe left → next
-				}
-				if (touchEndX > touchStartX + swipeThreshold) {
-					showPrev(); // swipe right → prev
-				}
+			const swipeThreshold = 50; // min distance in px
+			const deltaX = touchEndX - touchStartX;
+
+			if (deltaX < -swipeThreshold) {
+				modalImage.style.transform = "translateX(-100%)"; // slide out left
+				setTimeout(() => {
+				showNext();
+				modalImage.style.transform = "translateX(0)";
+				}, 200);
+			} else if (deltaX > swipeThreshold) {
+				modalImage.style.transform = "translateX(100%)"; // slide out right
+				setTimeout(() => {
+				showPrev();
+				modalImage.style.transform = "translateX(0)";
+				}, 200);
+			} else {
+				// not enough swipe → reset
+				modalImage.style.transform = "translateX(0)";
 			}
+		}
 		</script>
 	</body>
 </html>

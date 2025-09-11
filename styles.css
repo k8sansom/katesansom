@@ -446,7 +446,8 @@ input[type=text], select, textarea {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 10001; /* above the image */
+	z-index: 20000; /* ensures it's above modal content */
+	background: none; /* no box background—spinner floats cleanly */
   }
   
   @keyframes spin {

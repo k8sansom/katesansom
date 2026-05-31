@@ -110,6 +110,31 @@ a:hover {
     width: 100%;
 }
 
+.home_header_name {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .9rem;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.home_link_cell {
+    text-align: center;
+}
+
+.home_links a,
+.home_links a:link,
+.home_links a:visited {
+    color: inherit;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.home_links a:hover {
+    color: blue;
+    outline: none;
+    text-decoration: underline;
+}
+
 .about_cont {
     text-align: justify;
     outline: 2px dotted #999;
